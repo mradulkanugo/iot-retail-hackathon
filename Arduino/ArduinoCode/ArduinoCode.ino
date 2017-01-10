@@ -17,7 +17,7 @@ class JSONParser {
     JsonObject& root;
 
   public:
-    JSONParser(char json[]): root(jsonBuffer.parseObject(json)) {
+    JSONParser(const char json[]): root(jsonBuffer.parseObject(json)) {
       if (!root.success())
       {
         Serial.println("parseObject() failed");
@@ -34,6 +34,17 @@ class JSONParser {
     }
 };
 
+String readStringFromSerial() {
+  String readSerialString;
+  while (softwareSerial.available() == 0) { }
+  while (softwareSerial.available())
+  {
+    char c = softwareSerial.read();
+    readSerialString += c;
+  }
+  return readSerialString;
+}
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -43,8 +54,8 @@ void setup() {
 }
 
 void loop() {
-  JSONParser jsonParser(json);
+  String receivedJsonString = readStringFromSerial();
+  JSONParser jsonParser(receivedJsonString.c_str());
   servoMotors[jsonParser.getMotorId()].write(jsonParser.getDegreeOfRotation());
-
-  delay(1000);
+  delay(2000);
 }
