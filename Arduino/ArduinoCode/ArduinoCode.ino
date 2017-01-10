@@ -6,7 +6,30 @@ SoftwareSerial softwareSerial = SoftwareSerial(2, 3);
 Servo servoMotorOne, servoMotorTwo;
 StaticJsonBuffer<200> jsonBuffer;
 
-char json[] = "{\"motorNumber\":0,\"degree\":90}";
+char json[] = "{\"motorId\":0,\"degree\":90}";
+
+class JSONParser {
+    int motorId;
+    int degreeOfRotation;
+    JsonObject& root;
+
+  public:
+    JSONParser(char json[]): root(jsonBuffer.parseObject(json)) {
+      if (!root.success())
+      {
+        Serial.println("parseObject() failed");
+      }
+      motorId = root["motorId"];
+      degreeOfRotation = root["degree"];
+    }
+
+    int getMotorId() {
+      return motorId;
+    }
+    int getDegreeOfRotation() {
+      return degreeOfRotation;
+    }
+};
 
 void setup() {
   // put your setup code here, to run once:
@@ -17,27 +40,9 @@ void setup() {
 }
 
 void loop() {
-    JsonObject& root = jsonBuffer.parseObject(json);
-    if (!root.success())
-    {
-      Serial.println("parseObject() failed");
-      return;
-    }
-    int motorNumber = root["motorNumber"];
-    int degreeOfRotation = root["degree"];
+  JSONParser jsonParser (json);
+  Serial.println(jsonParser.getMotorId());
+  Serial.println(jsonParser.getDegreeOfRotation());
+  delay(1000);
 
-    Serial.println(motorNumber);
-    Serial.println(degreeOfRotation);
-    
-    switch (motorNumber)
-    {
-      case 0:
-        servoMotorOne.write(degreeOfRotation);
-        break;
-      case 1:
-        servoMotorTwo.write(degreeOfRotation);
-        break;
-    }
-    delay(1000);
-    while(1){}
 }
