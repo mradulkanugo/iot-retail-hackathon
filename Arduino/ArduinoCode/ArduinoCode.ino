@@ -3,10 +3,13 @@
 #include <Servo.h>
 
 SoftwareSerial softwareSerial = SoftwareSerial(2, 3);
-Servo servoMotorOne, servoMotorTwo;
+Servo servoMotors[2];
 StaticJsonBuffer<200> jsonBuffer;
 
 char json[] = "{\"motorId\":0,\"degree\":90}";
+
+const int pinForServoMotorOne = 9;
+const int pinForServoMotorTwo = 10;
 
 class JSONParser {
     int motorId;
@@ -35,14 +38,13 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   softwareSerial.begin(9600);
-  servoMotorOne.attach(9);
-  servoMotorTwo.attach(10);
+  servoMotors[0].attach(pinForServoMotorOne);
+  servoMotors[1].attach(pinForServoMotorTwo);
 }
 
 void loop() {
-  JSONParser jsonParser (json);
-  Serial.println(jsonParser.getMotorId());
-  Serial.println(jsonParser.getDegreeOfRotation());
-  delay(1000);
+  JSONParser jsonParser(json);
+  servoMotors[jsonParser.getMotorId()].write(jsonParser.getDegreeOfRotation());
 
+  delay(1000);
 }
