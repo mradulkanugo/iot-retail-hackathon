@@ -6,8 +6,6 @@ SoftwareSerial softwareSerial = SoftwareSerial(2, 3);
 Servo servoMotors[2];
 StaticJsonBuffer<200> jsonBuffer;
 
-char json[] = "{\"motorId\":0,\"degree\":90}";
-
 const int pinForServoMotorOne = 9;
 const int pinForServoMotorTwo = 10;
 
@@ -37,10 +35,15 @@ class JSONParser {
 String readStringFromSerial() {
   String readSerialString;
   while (softwareSerial.available() == 0) { }
-  while (softwareSerial.available())
+  char c = softwareSerial.read();
+  while (c!='\n')
   {
-    char c = softwareSerial.read();
-    readSerialString += c;
+    while (softwareSerial.available() == 0) { }
+    c = softwareSerial.read();
+    if (c != NULL)
+    {
+      readSerialString += c;
+    }
   }
   return readSerialString;
 }
@@ -56,6 +59,8 @@ void setup() {
 void loop() {
   String receivedJsonString = readStringFromSerial();
   JSONParser jsonParser(receivedJsonString.c_str());
+  Serial.println(jsonParser.getMotorId());
+  Serial.println(jsonParser.getDegreeOfRotation());
   servoMotors[jsonParser.getMotorId()].write(jsonParser.getDegreeOfRotation());
-  delay(2000);
+  
 }
