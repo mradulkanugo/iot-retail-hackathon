@@ -56,7 +56,7 @@ public class BluetoothThread extends Thread{
             try {
 
                 String jsonString=streamIn.readLine();
-                sendStatusMessage(jsonString);
+                sendStatusMessage("From Arduino"+jsonString);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -115,7 +115,6 @@ public class BluetoothThread extends Thread{
             try {
                 streamOut.writeChars(messageToBeSent);
                 streamOut.flush();
-                sendStatusMessage(messageToBeSent);
             } catch (IOException e) {
                 e.printStackTrace();
                 close();

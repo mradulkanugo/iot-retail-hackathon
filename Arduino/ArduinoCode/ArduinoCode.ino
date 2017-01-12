@@ -79,12 +79,6 @@ String receiveDataFromAndroid() {
   return dataReceived;
 }
 
-void sendDataToAndroid(const String& data) {
-  BlueToothSerial.println(data);
-  return;
-}
-
-
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
