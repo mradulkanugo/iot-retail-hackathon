@@ -4,12 +4,36 @@
 
 SoftwareSerial softwareSerial = SoftwareSerial(2, 3);
 Servo servoMotors[2];
-StaticJsonBuffer<200> jsonBuffer;
+
 
 const int pinForServoMotorOne = 9;
 const int pinForServoMotorTwo = 10;
+const int pinForConveyerBeltMotor = 5;
+
+class DCMotor {
+    int motorPin;
+  public:
+    DCMotor(int pin)
+    {
+      motorPin = pin;
+    }
+
+    void startMotor()
+    {
+      digitalWrite(motorPin, HIGH);
+      return;
+    }
+
+    void stopMotor()
+    {
+      digitalWrite(motorPin, LOW);
+      return;
+    }
+};
 
 class JSONParser {
+    StaticJsonBuffer<1000> jsonBuffer;
+    const char* commandType;
     int motorId;
     int degreeOfRotation;
     JsonObject& root;
@@ -20,8 +44,15 @@ class JSONParser {
       {
         Serial.println("parseObject() failed");
       }
+      commandType = root["commandType"];
       motorId = root["motorId"];
-      degreeOfRotation = root["degree"];
+      degreeOfRotation = root["data"];
+    }
+
+    String getCommandType() {
+      Serial.print("Command ");
+      Serial.println(commandType);
+      return commandType;
     }
 
     int getMotorId() {
@@ -36,7 +67,7 @@ String readStringFromSerial() {
   String readSerialString;
   while (softwareSerial.available() == 0) { }
   char c = softwareSerial.read();
-  while (c!='\n')
+  while (c != '\n')
   {
     while (softwareSerial.available() == 0) { }
     c = softwareSerial.read();
@@ -58,9 +89,19 @@ void setup() {
 
 void loop() {
   String receivedJsonString = readStringFromSerial();
+  Serial.println(receivedJsonString);
   JSONParser jsonParser(receivedJsonString.c_str());
-  Serial.println(jsonParser.getMotorId());
-  Serial.println(jsonParser.getDegreeOfRotation());
-  servoMotors[jsonParser.getMotorId()].write(jsonParser.getDegreeOfRotation());
-  
+  DCMotor conveyerBeltMotor = DCMotor(pinForConveyerBeltMotor);
+  String receivedCommand = jsonParser.getCommandType();
+  if (receivedCommand == "start")
+  {
+    conveyerBeltMotor.startMotor();
+  }
+  else if (receivedCommand == "stop")
+  {
+    conveyerBeltMotor.stopMotor();
+  }
+  else {
+    servoMotors[jsonParser.getMotorId()].write(jsonParser.getDegreeOfRotation());
+  }
 }
