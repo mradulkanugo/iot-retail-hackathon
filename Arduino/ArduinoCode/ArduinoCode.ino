@@ -2,7 +2,7 @@
 #include<SoftwareSerial.h>
 #include <Servo.h>
 
-SoftwareSerial softwareSerial = SoftwareSerial(2, 3);
+SoftwareSerial BlueToothSerial = SoftwareSerial(2, 3);
 Servo servoMotors[2];
 
 
@@ -63,7 +63,33 @@ class JSONParser {
     }
 };
 
-String readStringFromSerial() {
+class BluetoothChannel {
+  public:
+    String receiveDataFromAndroid() {
+      String dataReceived;
+      while (BlueToothSerial.available() == 0) { }
+      char c = BlueToothSerial.read();
+      while (c != '\n')
+      {
+        while (BlueToothSerial.available() == 0) { }
+        c = BlueToothSerial.read();
+        if (c != NULL)
+        {
+          dataReceived += c;
+        }
+      }
+      return dataReceived;
+    }
+
+    void sendDataToAndroid(const String& data) {
+      while (!BlueToothSerial.available()) { }
+      softwareSerial.println(data);
+      return;
+    }
+
+};
+
+/*String readStringFromSerial() {
   String readSerialString;
   while (softwareSerial.available() == 0) { }
   char c = softwareSerial.read();
@@ -77,18 +103,21 @@ String readStringFromSerial() {
     }
   }
   return readSerialString;
-}
+}*/
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  softwareSerial.begin(9600);
+  BlueToothSerial.begin(9600);
   servoMotors[0].attach(pinForServoMotorOne);
   servoMotors[1].attach(pinForServoMotorTwo);
 }
 
 void loop() {
-  String receivedJsonString = readStringFromSerial();
+  BluetoothChannel btChannel;
+  //String receivedJsonString = readStringFromSerial();
+  String receivedJsonString = btChannel.receiveDataFromAndroid();
+  btChannel.sendDataToAndroid(receivedJsonString);
   Serial.println(receivedJsonString);
   JSONParser jsonParser(receivedJsonString.c_str());
   DCMotor conveyerBeltMotor = DCMotor(pinForConveyerBeltMotor);
