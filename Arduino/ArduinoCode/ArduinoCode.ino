@@ -63,31 +63,27 @@ class JSONParser {
     }
 };
 
-class BluetoothChannel {
-  public:
-    String receiveDataFromAndroid() {
-      String dataReceived;
-      while (BlueToothSerial.available() == 0) { }
-      char c = BlueToothSerial.read();
-      while (c != '\n')
-      {
-        while (BlueToothSerial.available() == 0) { }
-        c = BlueToothSerial.read();
-        if (c != NULL)
-        {
-          dataReceived += c;
-        }
-      }
-      return dataReceived;
+String receiveDataFromAndroid() {
+  String dataReceived;
+  while (BlueToothSerial.available() == 0) { }
+  char c = BlueToothSerial.read();
+  while (c != '\n')
+  {
+    while (BlueToothSerial.available() == 0) { }
+    c = BlueToothSerial.read();
+    if (c != NULL)
+    {
+      dataReceived += c;
     }
+  }
+  return dataReceived;
+}
 
-    void sendDataToAndroid(const String& data) {
-      while (!BlueToothSerial.available()) { }
-      softwareSerial.println(data);
-      return;
-    }
+void sendDataToAndroid(const String& data) {
+  BlueToothSerial.println(data);
+  return;
+}
 
-};
 
 void setup() {
   // put your setup code here, to run once:
@@ -98,9 +94,7 @@ void setup() {
 }
 
 void loop() {
-  BluetoothChannel btChannel;
-  String receivedJsonString = btChannel.receiveDataFromAndroid();
-  btChannel.sendDataToAndroid(receivedJsonString);
+  String receivedJsonString = receiveDataFromAndroid();
   Serial.println(receivedJsonString);
   JSONParser jsonParser(receivedJsonString.c_str());
   DCMotor conveyerBeltMotor = DCMotor(pinForConveyerBeltMotor);
