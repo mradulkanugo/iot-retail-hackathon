@@ -6,7 +6,7 @@
         app:showAsAction="always"/>
 
     <item android:id="@+id/connect_tcp"
-        android:title="ConnectTCP"
+        android:title="Start Server"
         app:showAsAction="always"/>
 
 </menu>

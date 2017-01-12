@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -48,8 +49,7 @@ Button dispatchButton;
             @Override
             public void onClick(View v) {
                 Cart testcart=new Cart(1,1,1,1);
-                oredersToDispatch.add(testcart);
-                executeOrderDispatch();
+               addCarttoDispatchList(testcart);
             }
         });
         statusHandler = new Handler() {
@@ -62,7 +62,10 @@ Button dispatchButton;
         initializeThread();
         initializeVariables();
     }
-
+    void addCarttoDispatchList(Cart testcart){
+        oredersToDispatch.add(testcart);
+        executeOrderDispatch();
+    }
     private void initializeThread() {
     }
     @Override
@@ -79,7 +82,7 @@ Button dispatchButton;
             return true;
         }
         if (item.getItemId() == R.id.connect_tcp) {
-
+            startHttpServer();
         }
         return true;
     }
@@ -104,6 +107,13 @@ Button dispatchButton;
 
         int[] angleforShelf4 = {98, 96, 94, 92, 90};
         wareHouse[3] = new Shelf(4, 2, 4, angleforShelf4, activityReference);
+    }
+    private void startHttpServer()  {
+        try {
+            new AppServer(activityReference);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     private void connectBluetooth() {
         bluetoothThread = new BluetoothThread(bdevice, statusHandler, activityReference);
