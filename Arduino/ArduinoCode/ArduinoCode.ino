@@ -89,22 +89,6 @@ class BluetoothChannel {
 
 };
 
-/*String readStringFromSerial() {
-  String readSerialString;
-  while (softwareSerial.available() == 0) { }
-  char c = softwareSerial.read();
-  while (c != '\n')
-  {
-    while (softwareSerial.available() == 0) { }
-    c = softwareSerial.read();
-    if (c != NULL)
-    {
-      readSerialString += c;
-    }
-  }
-  return readSerialString;
-}*/
-
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -115,7 +99,6 @@ void setup() {
 
 void loop() {
   BluetoothChannel btChannel;
-  //String receivedJsonString = readStringFromSerial();
   String receivedJsonString = btChannel.receiveDataFromAndroid();
   btChannel.sendDataToAndroid(receivedJsonString);
   Serial.println(receivedJsonString);
