@@ -1,10 +1,7 @@
 #include <ArduinoJson.h>
-#include<SoftwareSerial.h>
 #include <Servo.h>
 
-SoftwareSerial BlueToothSerial = SoftwareSerial(2, 3);
 Servo servoMotors[2];
-
 
 const int pinForServoMotorOne = 9;
 const int pinForServoMotorTwo = 10;
@@ -65,14 +62,17 @@ class JSONParser {
 
 String receiveDataFromAndroid() {
   String dataReceived;
-  while (BlueToothSerial.available() == 0) { }
-  char c = BlueToothSerial.read();
+  while (Serial1.available() == 0) { }
+  char c = Serial1.read();
   while (c != '\n')
   {
-    while (BlueToothSerial.available() == 0) { }
-    c = BlueToothSerial.read();
+    while (Serial1.available() == 0) { }
+    c = Serial1.read();
     if (c != NULL)
     {
+//      Serial1.write(c);
+//      Serial1.write("\n");
+//      Serial.println(c);
       dataReceived += c;
     }
   }
@@ -82,7 +82,7 @@ String receiveDataFromAndroid() {
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  BlueToothSerial.begin(9600);
+  Serial1.begin(9600);
   servoMotors[0].attach(pinForServoMotorOne);
   servoMotors[1].attach(pinForServoMotorTwo);
 }
@@ -90,6 +90,8 @@ void setup() {
 void loop() {
   String receivedJsonString = receiveDataFromAndroid();
   Serial.println(receivedJsonString);
+  Serial1.println("Hello!!");
+  Serial1.println(receivedJsonString);
   JSONParser jsonParser(receivedJsonString.c_str());
   DCMotor conveyerBeltMotor = DCMotor(pinForConveyerBeltMotor);
   String receivedCommand = jsonParser.getCommandType();

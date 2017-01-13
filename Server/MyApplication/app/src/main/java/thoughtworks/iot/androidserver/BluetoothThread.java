@@ -27,6 +27,7 @@ public class BluetoothThread extends Thread{
     private final BluetoothDevice mmDevice;
     private BaseActivity activity;
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+    String debuggingString;
 
     public BluetoothThread(BluetoothDevice device, Handler _status_h, BaseActivity activity) {
         this.statusHandler = _status_h;
@@ -55,8 +56,8 @@ public class BluetoothThread extends Thread{
         while (torun) {
             try {
 
-                String jsonString=streamIn.readLine();
-                sendStatusMessage("From Arduino"+jsonString);
+                debuggingString+=streamIn.readLine();
+                sendStatusMessage("From Arduino"+debuggingString);
 
             } catch (IOException e) {
                 e.printStackTrace();
