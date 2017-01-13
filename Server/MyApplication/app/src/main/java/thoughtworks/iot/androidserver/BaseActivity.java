@@ -3,6 +3,7 @@ package thoughtworks.iot.androidserver;
 import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,10 +23,11 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 public class BaseActivity extends AppCompatActivity {
 
-    BaseActivity activityReference=this;
+    BaseActivity activityReference = this;
     BluetoothThread bluetoothThread;
     HttpServerThread httpServerThread;
     Shelf[] wareHouse;
@@ -36,20 +39,20 @@ public class BaseActivity extends AppCompatActivity {
     int portNumberOfServer = 5001;
     private BluetoothDevice bdevice = null;
     TextView statusMessage;
-Button dispatchButton;
+    Button dispatchButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        statusMessage=(TextView)findViewById(R.id.statusMessage);
-        dispatchButton=(Button)findViewById(R.id.buttonDispature);
+        statusMessage = (TextView) findViewById(R.id.statusMessage);
+        dispatchButton = (Button) findViewById(R.id.buttonDispature);
         dispatchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cart testcart=new Cart(1,1,1,1);
-               addCarttoDispatchList(testcart);
+                Cart testcart = new Cart(1, 1, 1, 1);
+                addCarttoDispatchList(testcart);
             }
         });
         statusHandler = new Handler() {
@@ -62,12 +65,15 @@ Button dispatchButton;
         initializeThread();
         initializeVariables();
     }
-    void addCarttoDispatchList(Cart testcart){
+
+    void addCarttoDispatchList(Cart testcart) {
         oredersToDispatch.add(testcart);
         executeOrderDispatch();
     }
+
     private void initializeThread() {
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_baseactivity, menu);
@@ -84,8 +90,14 @@ Button dispatchButton;
         if (item.getItemId() == R.id.connect_tcp) {
             startHttpServer();
         }
+
+        if (item.getItemId() == R.id.settings_warehouse) {
+            showWarehouseSettingDialog();
+        }
+
         return true;
     }
+
     private void makeToast(String str) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
@@ -103,32 +115,36 @@ Button dispatchButton;
         wareHouse[1] = new Shelf(2, 1, 4, angleforShelf2, activityReference);
 
         int[] angleforShelf3 = {82, 84, 86, 88, 90};
-        wareHouse[2] = new Shelf(3, 2, 4, angleforShelf3,activityReference);
+        wareHouse[2] = new Shelf(3, 2, 4, angleforShelf3, activityReference);
 
         int[] angleforShelf4 = {98, 96, 94, 92, 90};
         wareHouse[3] = new Shelf(4, 2, 4, angleforShelf4, activityReference);
     }
-    private void startHttpServer()  {
+
+    private void startHttpServer() {
         try {
             new AppServer(activityReference);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     private void connectBluetooth() {
         bluetoothThread = new BluetoothThread(bdevice, statusHandler, activityReference);
         bluetoothThread.start();
     }
-    void executeOrderDispatch() {
-       if(!isDispatchInProgress){
-           if(oredersToDispatch.size()>0){
-               isDispatchInProgress=true;
-               OrderDispatcher orderDispatcher=new OrderDispatcher();
-               orderDispatcher.execute();
-           }
 
-       }
+    void executeOrderDispatch() {
+        if (!isDispatchInProgress) {
+            if (oredersToDispatch.size() > 0) {
+                isDispatchInProgress = true;
+                OrderDispatcher orderDispatcher = new OrderDispatcher();
+                orderDispatcher.execute();
+            }
+
+        }
     }
+
     private void showBluetoothSelectionDialog() {
         final Dialog deviceList = new Dialog(activityReference);
         //setting custom layout to dialog
@@ -167,22 +183,107 @@ Button dispatchButton;
         });
         deviceList.show();
     }
-    private class OrderDispatcher extends AsyncTask<Void,Void, Void> {
+
+
+    private void showWarehouseSettingDialog() {
+        final Dialog warehouseSetting = new Dialog(activityReference);
+        //setting custom layout to dialog
+        warehouseSetting.setContentView(R.layout.ware_house_setting_dialog);
+        warehouseSetting.setTitle("Warehouse Settings");
+
+        final EditText editTextOne = (EditText) warehouseSetting.findViewById(R.id.editTextShelf1);
+        final EditText editTextTwo = (EditText) warehouseSetting.findViewById(R.id.editTextShelf2);
+        final EditText editTextThree = (EditText) warehouseSetting.findViewById(R.id.editTextShelf3);
+        final EditText editTextFour = (EditText) warehouseSetting.findViewById(R.id.editTextShelf4);
+        warehouseSetting.show();
+
+        final SharedPreferences sharedPreferences = activityReference.getSharedPreferences("defaultSettings", MODE_PRIVATE);
+        editTextOne.setText(sharedPreferences.getString("shelfOneAngles", "4,120,110,100,90"));
+        editTextTwo.setText(sharedPreferences.getString("shelfTwoAngles", "4,60,70,80,90"));
+        editTextThree.setText(sharedPreferences.getString("shelfThreeAngles", "4,120,110,100,90"));
+        editTextFour.setText(sharedPreferences.getString("shelfFourAngles", "4,60,70,80,90"));
+
+
+        Button buttonSet = (Button) warehouseSetting.findViewById(R.id.setButtonWarehouse);
+        buttonSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String shelfOneNewParameters = editTextOne.getText().toString();
+                String[] shelfOneParameterValues = shelfOneNewParameters.split(",");
+                if (shelfOneParameterValues.length == 5) {
+                    editor.putString("shelfOneAngles", shelfOneNewParameters);
+                    int[] parameters = new int[4];
+                    for (int counter = 0; counter < 4; counter++) {
+                        parameters[counter] = Integer.parseInt(shelfOneParameterValues[counter + 1]);
+                    }
+                    wareHouse[0] = new Shelf(1, 1, Integer.parseInt(shelfOneParameterValues[0]), parameters, activityReference);
+                }
+
+                String shelfTwoNewParameters = editTextTwo.getText().toString();
+                String[] shelfTwoParameterValues = shelfTwoNewParameters.split(",");
+                if (shelfTwoParameterValues.length == 5) {
+                    editor.putString("shelfTwoAngles", shelfTwoNewParameters);
+                    int[] parameters = new int[4];
+                    for (int counter = 0; counter < 4; counter++) {
+                        parameters[counter] = Integer.parseInt(shelfTwoParameterValues[counter + 1]);
+                    }
+                    wareHouse[1] = new Shelf(1, 1, Integer.parseInt(shelfTwoParameterValues[0]), parameters, activityReference);
+                }
+
+                String shelfThreeNewParameters = editTextThree.getText().toString();
+                String[] shelfThreeParameterValues = shelfThreeNewParameters.split(",");
+                if (shelfThreeParameterValues.length == 5) {
+                    editor.putString("shelfThreeAngles", shelfThreeNewParameters);
+                    int[] parameters = new int[4];
+                    for (int counter = 0; counter < 4; counter++) {
+                        parameters[counter] = Integer.parseInt(shelfThreeParameterValues[counter + 1]);
+                    }
+                    wareHouse[2] = new Shelf(1, 1, Integer.parseInt(shelfThreeParameterValues[0]), parameters, activityReference);
+                }
+
+                String shelfFourNewParameters = editTextFour.getText().toString();
+                String[] shelfFourParameterValues = shelfFourNewParameters.split(",");
+                if (shelfFourParameterValues.length == 5) {
+                    editor.putString("shelfFourAngles", shelfFourNewParameters);
+                    int[] parameters = new int[4];
+                    for (int counter = 0; counter < 4; counter++) {
+                        parameters[counter] = Integer.parseInt(shelfFourParameterValues[counter + 1]);
+                    }
+                    wareHouse[3] = new Shelf(1, 1, Integer.parseInt(shelfFourParameterValues[0]), parameters, activityReference);
+                }
+                editor.commit();
+                warehouseSetting.dismiss();
+            }
+        });
+
+        Button buttonCancel = (Button) warehouseSetting.findViewById(R.id.cancelButtonWarehouse);
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                warehouseSetting.dismiss();
+            }
+        });
+
+    }
+
+
+    private class OrderDispatcher extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPostExecute(Void aVoid) {
             oredersToDispatch.remove(0);
-            isDispatchInProgress=false;
+            isDispatchInProgress = false;
             executeOrderDispatch();
         }
 
         @Override
         protected Void doInBackground(Void... params) {
 
-            Cart orderToDispatch=oredersToDispatch.get(0);
-            bluetoothThread.changeBeltMotorStatus(0,true);
-            for(int counter=0;counter<wareHouse.length;counter++){
-                if(orderToDispatch.itemList[counter]>0){
+            Cart orderToDispatch = oredersToDispatch.get(0);
+            bluetoothThread.changeBeltMotorStatus(0, true);
+            for (int counter = 0; counter < wareHouse.length; counter++) {
+                if (orderToDispatch.itemList[counter] > 0) {
                     wareHouse[counter].dropItemOnBelt(orderToDispatch.itemList[counter]);
                     try {
                         Thread.sleep(5000);
@@ -197,7 +298,7 @@ Button dispatchButton;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            bluetoothThread.changeBeltMotorStatus(0,false);
+            bluetoothThread.changeBeltMotorStatus(0, false);
             return null;
         }
     }

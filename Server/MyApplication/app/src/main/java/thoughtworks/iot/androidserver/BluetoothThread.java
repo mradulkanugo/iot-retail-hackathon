@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
+import com.google.gson.JsonParser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
@@ -56,7 +61,14 @@ public class BluetoothThread extends Thread{
         while (torun) {
             try {
 
-                debuggingString+=streamIn.readLine();
+                String jsonString = streamIn.readLine();
+                try {
+                    JSONObject jsonObject = new JSONObject(jsonString);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    continue;
+                }
+                debuggingString+=jsonString;
                 sendStatusMessage("From Arduino"+debuggingString);
 
             } catch (IOException e) {

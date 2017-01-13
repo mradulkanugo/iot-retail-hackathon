@@ -9,4 +9,8 @@
         android:title="Start Server"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/settings_warehouse"
+        android:title="Warehouse"
+        app:showAsAction="always"/>
+
 </menu>
