@@ -1,11 +1,40 @@
 #include <ArduinoJson.h>
 #include <Servo.h>
 
-Servo servoMotors[2];
+Servo servoMotorOne;
+Servo servoMotorTwo;
 
 const int pinForServoMotorOne = 9;
 const int pinForServoMotorTwo = 10;
 const int pinForConveyerBeltMotor = 5;
+
+class ServoMotorArm {
+    Servo servoMotor;
+    int servoPosition;
+    int delayForStep = 50;
+  public:
+    ServoMotorArm(Servo& motor) {
+      servoMotor = motor;
+      servoPosition = 90;
+      servoMotor.write(servoPosition);
+    }
+
+    void setPosition(int destinationPosition) {
+      while (servoPosition != destinationPosition) {
+        if (destinationPosition > servoPosition) {
+          servoPosition++;
+        }
+        else {
+          servoPosition--;
+        }
+        
+        servoMotorOne.write(servoPosition);
+        Serial.println(servoPosition);
+        delay(delayForStep);
+      }
+    }
+};
+
 
 class DCMotor {
     int motorPin;
@@ -70,9 +99,9 @@ String receiveDataFromAndroid() {
     c = Serial1.read();
     if (c != NULL)
     {
-//      Serial1.write(c);
-//      Serial1.write("\n");
-//      Serial.println(c);
+      //      Serial1.write(c);
+      //      Serial1.write("\n");
+      //      Serial.println(c);
       dataReceived += c;
     }
   }
@@ -83,15 +112,21 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial1.begin(9600);
-  servoMotors[0].attach(pinForServoMotorOne);
-  servoMotors[1].attach(pinForServoMotorTwo);
+
+  servoMotorOne.attach(pinForServoMotorOne);
+  servoMotorTwo.attach(pinForServoMotorTwo);
 }
+
+
+
+ServoMotorArm servoMotorArmOne(servoMotorOne) ;
+ServoMotorArm servoMotorArmTwo(servoMotorTwo) ;
+ServoMotorArm servoMotorArms[] = {servoMotorArmOne, servoMotorArmTwo};
+
 
 void loop() {
   String receivedJsonString = receiveDataFromAndroid();
   Serial.println(receivedJsonString);
-  Serial1.println("Hello!!");
-  Serial1.println(receivedJsonString);
   JSONParser jsonParser(receivedJsonString.c_str());
   DCMotor conveyerBeltMotor = DCMotor(pinForConveyerBeltMotor);
   String receivedCommand = jsonParser.getCommandType();
@@ -104,6 +139,6 @@ void loop() {
     conveyerBeltMotor.stopMotor();
   }
   else {
-    servoMotors[jsonParser.getMotorId()].write(jsonParser.getDegreeOfRotation());
+    servoMotorArms[jsonParser.getMotorId()].setPosition(jsonParser.getDegreeOfRotation());
   }
 }
