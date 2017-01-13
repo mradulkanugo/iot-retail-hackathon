@@ -4,16 +4,14 @@
 Servo servoMotorOne;
 Servo servoMotorTwo;
 
-const int pinForServoMotorOne = 9;
-const int pinForServoMotorTwo = 10;
-const int pinForConveyerBeltMotor = 5;
+const int pinForConveyerBeltMotor = 13;
 
 class ServoMotorArm {
     Servo servoMotor;
     int servoPosition;
     int delayForStep = 50;
   public:
-    ServoMotorArm(Servo& motor) {
+    ServoMotorArm(Servo motor) {
       servoMotor = motor;
       servoPosition = 90;
       servoMotor.write(servoPosition);
@@ -27,13 +25,14 @@ class ServoMotorArm {
         else {
           servoPosition--;
         }
-        
-        servoMotorOne.write(servoPosition);
+
+        servoMotor.write(servoPosition);
         Serial.println(servoPosition);
         delay(delayForStep);
       }
     }
 };
+
 
 
 class DCMotor {
@@ -99,30 +98,23 @@ String receiveDataFromAndroid() {
     c = Serial1.read();
     if (c != NULL)
     {
-      //      Serial1.write(c);
-      //      Serial1.write("\n");
-      //      Serial.println(c);
       dataReceived += c;
     }
   }
   return dataReceived;
 }
 
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial1.begin(9600);
-
-  servoMotorOne.attach(pinForServoMotorOne);
-  servoMotorTwo.attach(pinForServoMotorTwo);
-}
-
-
-
 ServoMotorArm servoMotorArmOne(servoMotorOne) ;
 ServoMotorArm servoMotorArmTwo(servoMotorTwo) ;
 ServoMotorArm servoMotorArms[] = {servoMotorArmOne, servoMotorArmTwo};
 
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial1.begin(9600);
+  servoMotorOne.attach(10);
+  servoMotorTwo.attach(5);
+}
 
 void loop() {
   String receivedJsonString = receiveDataFromAndroid();

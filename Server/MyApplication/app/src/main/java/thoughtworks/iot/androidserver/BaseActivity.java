@@ -109,16 +109,16 @@ public class BaseActivity extends AppCompatActivity {
         }
         wareHouse = new Shelf[4];
         int[] angleforShelf1 = {82, 84, 86, 88, 90};
-        wareHouse[0] = new Shelf(1, 1, 4, angleforShelf1, activityReference);
+        wareHouse[0] = new Shelf(1, 0, 4, angleforShelf1, activityReference);
 
         int[] angleforShelf2 = {98, 96, 94, 92, 90};
-        wareHouse[1] = new Shelf(2, 1, 4, angleforShelf2, activityReference);
+        wareHouse[1] = new Shelf(2, 0, 4, angleforShelf2, activityReference);
 
         int[] angleforShelf3 = {82, 84, 86, 88, 90};
-        wareHouse[2] = new Shelf(3, 2, 4, angleforShelf3, activityReference);
+        wareHouse[2] = new Shelf(3, 1, 4, angleforShelf3, activityReference);
 
         int[] angleforShelf4 = {98, 96, 94, 92, 90};
-        wareHouse[3] = new Shelf(4, 2, 4, angleforShelf4, activityReference);
+        wareHouse[3] = new Shelf(4, 1, 4, angleforShelf4, activityReference);
     }
 
     private void startHttpServer() {
@@ -217,7 +217,7 @@ public class BaseActivity extends AppCompatActivity {
                     for (int counter = 0; counter < 4; counter++) {
                         parameters[counter] = Integer.parseInt(shelfOneParameterValues[counter + 1]);
                     }
-                    wareHouse[0] = new Shelf(1, 1, Integer.parseInt(shelfOneParameterValues[0]), parameters, activityReference);
+                    wareHouse[0] = new Shelf(1, 0, Integer.parseInt(shelfOneParameterValues[0]), parameters, activityReference);
                 }
 
                 String shelfTwoNewParameters = editTextTwo.getText().toString();
@@ -228,7 +228,7 @@ public class BaseActivity extends AppCompatActivity {
                     for (int counter = 0; counter < 4; counter++) {
                         parameters[counter] = Integer.parseInt(shelfTwoParameterValues[counter + 1]);
                     }
-                    wareHouse[1] = new Shelf(1, 1, Integer.parseInt(shelfTwoParameterValues[0]), parameters, activityReference);
+                    wareHouse[1] = new Shelf(2, 0, Integer.parseInt(shelfTwoParameterValues[0]), parameters, activityReference);
                 }
 
                 String shelfThreeNewParameters = editTextThree.getText().toString();
@@ -239,7 +239,7 @@ public class BaseActivity extends AppCompatActivity {
                     for (int counter = 0; counter < 4; counter++) {
                         parameters[counter] = Integer.parseInt(shelfThreeParameterValues[counter + 1]);
                     }
-                    wareHouse[2] = new Shelf(1, 1, Integer.parseInt(shelfThreeParameterValues[0]), parameters, activityReference);
+                    wareHouse[2] = new Shelf(3, 1, Integer.parseInt(shelfThreeParameterValues[0]), parameters, activityReference);
                 }
 
                 String shelfFourNewParameters = editTextFour.getText().toString();
@@ -250,7 +250,7 @@ public class BaseActivity extends AppCompatActivity {
                     for (int counter = 0; counter < 4; counter++) {
                         parameters[counter] = Integer.parseInt(shelfFourParameterValues[counter + 1]);
                     }
-                    wareHouse[3] = new Shelf(1, 1, Integer.parseInt(shelfFourParameterValues[0]), parameters, activityReference);
+                    wareHouse[3] = new Shelf(4, 1, Integer.parseInt(shelfFourParameterValues[0]), parameters, activityReference);
                 }
                 editor.commit();
                 warehouseSetting.dismiss();
