@@ -23,7 +23,6 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -40,6 +39,7 @@ public class BaseActivity extends AppCompatActivity {
     private BluetoothDevice bdevice = null;
     TextView statusMessage;
     Button dispatchButton;
+    Button resetMotorOne,resetMotorTwo ;
 
 
     @Override
@@ -53,6 +53,20 @@ public class BaseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Cart testcart = new Cart(1, 1, 1, 1);
                 addCarttoDispatchList(testcart);
+            }
+        });
+        resetMotorOne = (Button) findViewById(R.id.reset_button_one);
+        resetMotorTwo = (Button) findViewById(R.id.reset_button_two);
+        resetMotorOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bluetoothThread.resetMotorOne();
+            }
+        });
+        resetMotorTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bluetoothThread.resetMotorTwo();
             }
         });
         statusHandler = new Handler() {
@@ -108,16 +122,16 @@ public class BaseActivity extends AppCompatActivity {
             availableItemsForsell[counter] = 4;
         }
         wareHouse = new Shelf[4];
-        int[] angleforShelf1 = {82, 84, 86, 88, 90};
+        int[] angleforShelf1 = {40, 46, 56, 66};
         wareHouse[0] = new Shelf(1, 0, 4, angleforShelf1, activityReference);
 
-        int[] angleforShelf2 = {98, 96, 94, 92, 90};
+        int[] angleforShelf2 = {121, 115, 105, 95};
         wareHouse[1] = new Shelf(2, 0, 4, angleforShelf2, activityReference);
 
-        int[] angleforShelf3 = {82, 84, 86, 88, 90};
+        int[] angleforShelf3 = {132, 124, 116, 108};
         wareHouse[2] = new Shelf(3, 1, 4, angleforShelf3, activityReference);
 
-        int[] angleforShelf4 = {98, 96, 94, 92, 90};
+        int[] angleforShelf4 = {48, 58, 68, 78};
         wareHouse[3] = new Shelf(4, 1, 4, angleforShelf4, activityReference);
     }
 
@@ -198,10 +212,10 @@ public class BaseActivity extends AppCompatActivity {
         warehouseSetting.show();
 
         final SharedPreferences sharedPreferences = activityReference.getSharedPreferences("defaultSettings", MODE_PRIVATE);
-        editTextOne.setText(sharedPreferences.getString("shelfOneAngles", "4,120,110,100,90"));
-        editTextTwo.setText(sharedPreferences.getString("shelfTwoAngles", "4,60,70,80,90"));
-        editTextThree.setText(sharedPreferences.getString("shelfThreeAngles", "4,120,110,100,90"));
-        editTextFour.setText(sharedPreferences.getString("shelfFourAngles", "4,60,70,80,90"));
+        editTextOne.setText(sharedPreferences.getString("shelfOneAngles", "4,40,46,56,66"));
+        editTextTwo.setText(sharedPreferences.getString("shelfTwoAngles", "4,121,115,105,95"));
+        editTextThree.setText(sharedPreferences.getString("shelfThreeAngles", "4,132,124,116,108"));
+        editTextFour.setText(sharedPreferences.getString("shelfFourAngles", "4,48,58,68,78"));
 
 
         Button buttonSet = (Button) warehouseSetting.findViewById(R.id.setButtonWarehouse);
@@ -215,7 +229,7 @@ public class BaseActivity extends AppCompatActivity {
                     editor.putString("shelfOneAngles", shelfOneNewParameters);
                     int[] parameters = new int[4];
                     for (int counter = 0; counter < 4; counter++) {
-                        parameters[counter] = Integer.parseInt(shelfOneParameterValues[counter + 1]);
+                        parameters[counter] = Integer.parseInt(shelfOneParameterValues[counter]);
                     }
                     wareHouse[0] = new Shelf(1, 0, Integer.parseInt(shelfOneParameterValues[0]), parameters, activityReference);
                 }
@@ -226,7 +240,7 @@ public class BaseActivity extends AppCompatActivity {
                     editor.putString("shelfTwoAngles", shelfTwoNewParameters);
                     int[] parameters = new int[4];
                     for (int counter = 0; counter < 4; counter++) {
-                        parameters[counter] = Integer.parseInt(shelfTwoParameterValues[counter + 1]);
+                        parameters[counter] = Integer.parseInt(shelfTwoParameterValues[counter]);
                     }
                     wareHouse[1] = new Shelf(2, 0, Integer.parseInt(shelfTwoParameterValues[0]), parameters, activityReference);
                 }
@@ -237,7 +251,7 @@ public class BaseActivity extends AppCompatActivity {
                     editor.putString("shelfThreeAngles", shelfThreeNewParameters);
                     int[] parameters = new int[4];
                     for (int counter = 0; counter < 4; counter++) {
-                        parameters[counter] = Integer.parseInt(shelfThreeParameterValues[counter + 1]);
+                        parameters[counter] = Integer.parseInt(shelfThreeParameterValues[counter]);
                     }
                     wareHouse[2] = new Shelf(3, 1, Integer.parseInt(shelfThreeParameterValues[0]), parameters, activityReference);
                 }
@@ -248,7 +262,7 @@ public class BaseActivity extends AppCompatActivity {
                     editor.putString("shelfFourAngles", shelfFourNewParameters);
                     int[] parameters = new int[4];
                     for (int counter = 0; counter < 4; counter++) {
-                        parameters[counter] = Integer.parseInt(shelfFourParameterValues[counter + 1]);
+                        parameters[counter] = Integer.parseInt(shelfFourParameterValues[counter]);
                     }
                     wareHouse[3] = new Shelf(4, 1, Integer.parseInt(shelfFourParameterValues[0]), parameters, activityReference);
                 }

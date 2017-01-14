@@ -11,9 +11,9 @@ class ServoMotorArm {
     int servoPosition;
     int delayForStep = 50;
   public:
-    ServoMotorArm(Servo motor) {
+    ServoMotorArm(Servo motor, int startPosition) {
       servoMotor = motor;
-      servoPosition = 90;
+      servoPosition = startPosition;
       servoMotor.write(servoPosition);
     }
 
@@ -104,9 +104,10 @@ String receiveDataFromAndroid() {
   return dataReceived;
 }
 
-ServoMotorArm servoMotorArmOne(servoMotorOne) ;
-ServoMotorArm servoMotorArmTwo(servoMotorTwo) ;
+ServoMotorArm servoMotorArmOne(servoMotorOne, 81) ;
+ServoMotorArm servoMotorArmTwo(servoMotorTwo, 93) ;
 ServoMotorArm servoMotorArms[] = {servoMotorArmOne, servoMotorArmTwo};
+DCMotor conveyerBeltMotor = DCMotor(pinForConveyerBeltMotor);
 
 void setup() {
   // put your setup code here, to run once:
@@ -133,4 +134,55 @@ void loop() {
   else {
     servoMotorArms[jsonParser.getMotorId()].setPosition(jsonParser.getDegreeOfRotation());
   }
+
+//  servoMotorArms[0].setPosition(81);
+//  delay(3000);
+//  servoMotorArms[1].setPosition(93);
+//  delay(3000);
+  //  delay(3000);
+  //  conveyerBeltMotor.startMotor();
+  //  delay(6000);
+  //  servoMotorArms[0].setPosition(81);
+  //  delay(3000);
+  //  servoMotorArms[0].setPosition(95);
+  //  delay(3000);
+  //  servoMotorArms[0].setPosition(105);
+  //  delay(3000);
+  //  servoMotorArms[0].setPosition(115);
+  //  delay(3000);
+  //  servoMotorArms[0].setPosition(121);
+  //  delay(6000);
+  //  servoMotorArms[0].setPosition(81);
+  //  delay(3000);
+  //  servoMotorArms[0].setPosition(66);
+  //  delay(3000);
+  //  servoMotorArms[0].setPosition(56);
+  //  delay(3000);
+  //  servoMotorArms[0].setPosition(46);
+  //  delay(3000);
+  //  servoMotorArms[0].setPosition(40);
+
+
+  //  delay(6000);
+  //  servoMotorArms[1].setPosition(93);
+  //  delay(3000);
+  //  servoMotorArms[1].setPosition(108);
+  //  delay(3000);
+  //  servoMotorArms[1].setPosition(116);
+  //  delay(3000);
+  //  servoMotorArms[1].setPosition(124);
+  //  delay(3000);
+  //  servoMotorArms[1].setPosition(132);
+  //  delay(6000);
+  //  servoMotorArms[1].setPosition(93);
+  //  delay(3000);
+  //  servoMotorArms[1].setPosition(78);
+  //  delay(3000);
+  //  servoMotorArms[1].setPosition(68);
+  //  delay(3000);
+  //  servoMotorArms[1].setPosition(58);
+  //  delay(3000);
+  //  servoMotorArms[1].setPosition(48);
+  //  delay(3000);
+
 }

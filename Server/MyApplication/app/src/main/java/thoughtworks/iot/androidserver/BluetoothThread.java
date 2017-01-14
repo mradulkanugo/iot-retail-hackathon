@@ -148,4 +148,33 @@ public class BluetoothThread extends Thread{
         statusHandler.sendMessage(m);
     }
 
+    public void resetMotorOne() {
+        if (streamOut != null) {
+
+            String messageToBeSent;
+            messageToBeSent = "{\"commandType\" : \"set\", \"motorId\":" + "0" + ",\"data\": " + "81" + "}\n";
+            try {
+                streamOut.writeChars(messageToBeSent);
+                streamOut.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+                close();
+            }
+        }
+    }
+
+    public void resetMotorTwo() {
+        if (streamOut != null) {
+
+            String messageToBeSent;
+            messageToBeSent = "{\"commandType\" : \"set\", \"motorId\":" + "1" + ",\"data\": " + "93" + "}\n";
+            try {
+                streamOut.writeChars(messageToBeSent);
+                streamOut.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+                close();
+            }
+        }
+    }
 }
