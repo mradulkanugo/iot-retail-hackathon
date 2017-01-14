@@ -1,6 +1,5 @@
 package com.varvet.barcodereadersample;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
@@ -41,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private static final int BARCODE_READER_REQUEST_CODE = 1;
     ArrayList<CartItem> arrayListCart;
-    AdapterProductList adapterProductList;
+    CartProductAdapter cartProductAdapter;
     SharedPreferences sharedPreferences;
-    private ListView listViewCartItem;
+    private ListView cartListView;
     private Button buttonScanBarCode, buttonAdd, buttonCheckOut;
     private EditText editTextBarCode;
     private String SERVER_IP = "10.131.127.6:8080";
@@ -53,14 +52,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sharedPreferences = getApplicationContext().getSharedPreferences("appsettings", MODE_PRIVATE);
+        sharedPreferences = getApplicationContext().getSharedPreferences(SettingsDialog.PREF_NAME, MODE_PRIVATE);
         SERVER_IP = sharedPreferences.getString("serverIp", "10.131.127.6");
         editTextBarCode = (EditText) findViewById(R.id.editText_barCode);
 
         buttonScanBarCode = (Button) findViewById(R.id.scan_barcode_button);
-        listViewCartItem = (ListView) findViewById(R.id.listView_item);
+        cartListView = (ListView) findViewById(R.id.listView);
         buttonAdd = (Button) findViewById(R.id.add_button);
         buttonCheckOut = (Button) findViewById(R.id.checkout_button);
+        itemList = new ArrayList<>();
+        itemList.add(new CartItem("ParleG", 0, "1ABCDE"));
+        itemList.add(new CartItem("CenterFresh", 0, "2ABCDE"));
+        itemList.add(new CartItem("Nirma", 0, "3ABCDE"));
+        itemList.add(new CartItem("Apsara", 0, "4ABCDE"));
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
                     if (cartItem.getQrCode().equals(barCode)) {
                         CartItem newCartItem = new CartItem(cartItem.getProductName(), 1, barCode);
                         arrayListCart.add(newCartItem);
-                        listViewCartItem.invalidate();
+                        CartProductAdapter adapter = (CartProductAdapter) cartListView.getAdapter();
+                        adapter.notifyDataSetChanged();
                         Toast.makeText(getApplication(), "Item added" + newCartItem.getProductName(), Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -82,10 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
         arrayListCart = new ArrayList<>();
         itemList = new ArrayList<>();
-        adapterProductList = new AdapterProductList(this, R.layout.cart_item_view, arrayListCart);
+        cartProductAdapter = new CartProductAdapter(this, R.layout.cart_item_view, arrayListCart);
         // adapterProductList.add(arrayListCart);
-        listViewCartItem.setAdapter(adapterProductList);
-        listViewCartItem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        cartListView.setAdapter(cartProductAdapter);
+        cartListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -132,32 +137,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void showSettingDialog() {
-        final Dialog settingDialog = new Dialog(this);
-        settingDialog.setContentView(R.layout.setting_dialog);
-        settingDialog.show();
-
-        final EditText editTextServerIP = (EditText) settingDialog.findViewById(R.id.editTextServerIp);
-        SERVER_IP = sharedPreferences.getString("serverIp", "10.131.127.2");
-        editTextServerIP.setText(SERVER_IP);
-        final Button buttonSet = (Button) settingDialog.findViewById(R.id.buttonSet);
-        final Button buttonCancel = (Button) settingDialog.findViewById(R.id.buttonCancel);
-        buttonSet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(LOG_TAG, "Button clicked");
-                SERVER_IP = editTextServerIP.getText().toString();
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("serverIp", SERVER_IP);
-                editor.commit();
-                settingDialog.dismiss();
-            }
-        });
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                settingDialog.dismiss();
-            }
-        });
+        SettingsDialog settingsDialog = new SettingsDialog();
+        settingsDialog.show(getSupportFragmentManager(), SettingsDialog.TAG);
     }
 
     public class HttpClientGet extends AsyncTask<String, Void, String> {
@@ -166,9 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... args) {
-
             try {
-                URL url = new URL("http://10.131.127.6:8080"); // here is your URL path
+                URL url = new URL("http://10.131.126.192:8080"); // here is your URL path
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
 
@@ -179,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if (responseCode == HttpsURLConnection.HTTP_OK) {
-
                     BufferedReader in = new BufferedReader(
                             new InputStreamReader(conn.getInputStream()));
                     String output;
@@ -196,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(responseJson);
                     JSONObject json = new JSONObject(responseJson);
                     JSONArray jsonArray = jsonObject.getJSONArray("Products");
+                    itemList = new ArrayList<>();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject productJson = jsonArray.getJSONObject(i);
                         String productName = productJson.getString("productName");
@@ -232,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 
             try {
 
-                URL url = new URL("http://10.131.127.6:8080"); // here is your URL path
+                URL url = new URL("http://10.131.126.192:8080"); // here is your URL path
 
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();

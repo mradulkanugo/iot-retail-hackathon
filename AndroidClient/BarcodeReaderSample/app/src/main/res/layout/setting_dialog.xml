@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
-        android:text="Server IP"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:text="Server IP" />
 
     <EditText
+        android:id="@+id/editTextServerIp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ip"
-        android:id="@+id/editTextServerIp" />
+        android:text="ip" />
 
-    <Button
-        android:text="Cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonSet" />
-
-    <Button
-        android:text="Set"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonCancel" />
 </LinearLayout>
