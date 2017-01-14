@@ -60,12 +60,15 @@ public class AppServer extends NanoHTTPD {
             return newFixedLengthResponse("Request recieved");
         } else {
             JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            for (String qrCode : itemRepository.allItems.keySet()) {
-                jsonArray.put(qrCode);
-            }
             try {
-                jsonObject.put("QRCodes", jsonArray);
+            JSONArray jsonArray = new JSONArray();
+            for (Product product : itemRepository.allItems.keySet()) {
+                JSONObject productJson = new JSONObject();
+                productJson.put("productName", product.getProductName());
+                productJson.put("productQrCode", product.getQrCode());
+                jsonArray.put(productJson);
+            }
+                jsonObject.put("Products", jsonArray);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

@@ -5,18 +5,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ItemRepository {
-    Map<String, Integer> allItems;
+    Map<Product, Integer> allItems;
 
     public ItemRepository() {
         allItems = new HashMap<>();
-        allItems.put(new String("1ABCDE"), 0);
-        allItems.put(new String("2ABCDE"), 1);
-        allItems.put(new String("3ABCDE"), 2);
-        allItems.put(new String("4ABCDE"), 3);
+        allItems.put(new Product("1ABCDE", "ParleG"), 0);
+        allItems.put(new Product("2ABCDE", "CenterFresh"), 1);
+        allItems.put(new Product("3ABCDE", "Nirma"), 2);
+        allItems.put(new Product("4ABCDE", "Apsara"), 3);
     }
 
 
     public Integer getShelfNumber(String qrCode) {
-        return  allItems.get(qrCode);
+        for (Product product : allItems.keySet()) {
+            if(product.getQrCode().equals(qrCode))
+                return allItems.get(product);
+        }
+        return null;
     }
 }
