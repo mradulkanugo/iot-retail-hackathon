@@ -11,11 +11,11 @@ import java.lang.reflect.Type;
 
 
 public class CartDeserializer implements JsonDeserializer<Cart> {
-//    private final ProductService productService;
+    private final ItemRepository itemRepository;
 
-//    public CartDeserializer(ProductService productService) {
-//        this.productService = productService;
-//    }
+    public CartDeserializer(ItemRepository productService) {
+        this.itemRepository = productService;
+    }
 
     @Override
     public Cart deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
@@ -26,12 +26,12 @@ public class CartDeserializer implements JsonDeserializer<Cart> {
         for (JsonElement jsonElement : jsonCartArray) {
             JsonObject cartObject = jsonElement.getAsJsonObject();
             String productID = cartObject.get("productID").getAsString();
-            //Product product = productService.getProduct(productID);
-//            if(product == null){
-//                throw new JsonParseException("Invalid QR Code");
-//            }
+            Integer shelfNumber = itemRepository.getShelfNumber(productID);
+            if(shelfNumber == null){
+                throw new JsonParseException("Invalid QR Code");
+            }
             int quantity = cartObject.get("quantity").getAsInt();
-            cart.itemList[Integer.parseInt(productID)] = quantity;
+            cart.itemList[shelfNumber] = quantity;
                     //cart.add(product, quantity);
         }
 
