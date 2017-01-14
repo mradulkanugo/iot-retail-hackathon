@@ -1,29 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.varvet.barcodereadersample.MainActivity"
     android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/result_textview"
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/no_barcode_captured"
-        android:textSize="22sp"
-        android:freezesText="true"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+        android:id="@+id/listView_item"
+        android:layout_weight="1">
 
+    </ListView>
     <Button
         android:id="@+id/scan_barcode_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/scan_barcode_button"
-        android:layout_below="@id/result_textview"
         android:background="@color/colorAccent"
         android:textColor="@color/colorWhite"/>
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/editText_barCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_barcode_captured"
+            android:textSize="22sp"
+            android:freezesText="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/add_button"/>
+    </LinearLayout>
+
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/checkout_button"
+       android:text="Check Out"/>
+
+</LinearLayout>
