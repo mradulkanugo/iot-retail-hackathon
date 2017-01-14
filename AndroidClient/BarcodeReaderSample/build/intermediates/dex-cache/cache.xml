@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="670df81539ab71918d49b186598b7eff08ef6563">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-vision-9.4.0_456ae18f5539ec01eaa7942181a9e78c29867871/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="59a16a4a42d25b2c243dd1e8aea87d06895b4a06">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-iid-9.4.0_ced9b73015620cc5293cda7e57b7f350ef761bd9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="65e49f84687ec9f936eecf7d0da24e4ff73f3ace">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_b578b59833f735192e6673751bd9f37cede66da3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="cded92fe960bf86b1e2b9cf4e0f3a7d96c05497c">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ac8b2b9483b839db9e980e81786dbfff139180d6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3b7173b3df4c7029699919414400041f64519e34">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.4.0_108277320811d304cf525fc8091ee045177610d3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c8f5d56f8f8a287c95e02c542baade138a378048">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-common-9.4.0_f8cead0eaf3cef4dc0965b0fbb45b4f482dac374/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.1.1_58bd166782184cc1c68b7858dbf3e6849a48611c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="461e4257888c25ec05abcd91e758fe7f4949230a">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-nearby-9.4.0_6b2c4062e5fad3cba347276f59e085df7f8e0bb3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e454c414a069241ee08444d187f2dd3a702596b5">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-9.4.0_16c07aa916f426c1069232817fedc0c23165ef5b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="58c9f5ee817fdb8b658fd7455fadfb74119f7ee9">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-9.4.0_547dc57215051b0f069978c2192086033afba0b1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="954697ee6ea7bdd596babf4f70e8b7a17ca7649e">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wallet-9.4.0_3594d544cd977e36146b7f25561563d3c19b5ed4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.4.0_20ec0d316c48c61b74440c94aad7f14413f50a4b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="dd51b31890731591729f046d7a09c4fe4e483ed1">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-9.4.0_50f2dc97f31e26d3a4bff1b4e832487f592aedb4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8ce5e7a4a146dddd1d9e66b09c714a6c149916d8">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-drive-9.4.0_fe1afae2abcddfa2d54e08479d870f5bf4834aeb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e5e8e535d15834e824817bdf5370556f62b4b2a5">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-9.4.0_12f43d201996afe94f9fa968813b19067437eac6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d463d8eec1e6c1feef2cec6675ccb47e37c12ee1">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-9.4.0_82e8991e71b70fc81c3420888fb68cfaa74d548a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="98e97da89d4df8e2f6eba63498d3d46a587372f2">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-storage-9.4.0_0479d4c63f6a544393781d4c0dc6c08317c86565/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ba47b210d36301e237ccfea860eaada04590f12a">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-9.4.0_a198a57d465f2a4dfbbfbf8003d0856b0ac5a017/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="88848548ab56d4fbf3d2d1b0c85bf1ff9b4c1f4b">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.4.0_82fe04af4a51de244edc296ee989f63f3b60d10a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c10df7344e31161852c20bb8143fc37319aa10ec">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-9.4.0_9cc3f5084901b9cbd83597ffa620c7c8b0f8bafc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a440fb3fec30ff925e9f601cc458fb6671834cb2">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.4.0_d1299824c56ee26a36c23c777a49d22b1cfdf01a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="736d8893fb702f128a153c9d87c9c29724d37872">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appinvite-9.4.0_1b9fad22429249975e1a64694dc3d28b8c6aaadc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.1.1/support-annotations-24.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.1.1_09018d8de757ad21bfae4baadd9a652d03dfe98b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a432629397351d3ec7f27a23d258b229b81af08f">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-9.4.0_815cf4d46533396588b89978513433e02ea2e4f4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="7bc6ea2bcfd6de4b7085e0f3a01616c5c8e0e2ad">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-safetynet-9.4.0_2ccb3b2d84bb99107a4393bcdc38a247a008ce0f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.4.0_76bfb38ffb8d1be09c63b53a8f6aa4b48b6eb02c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="147edbec6bcea71fd675ecc63cae3319637ec2b4">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-9.4.0_ca5d5844fd69f5939cdd94cddfbe705ee11f6580/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="618485fef3ebe12127f7622abbc9b5b39057b5c2">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.4.0_00e6170423dfd223fa60f59a201a7f5807236c8d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d49118ba67a101c4895f0581f17142cba85b330b">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-panorama-9.4.0_8a6289df50abb825ad271276b5a7683297af857e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b1acf13f1b7d8232af78a30833f9a966d1394c84">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-9.4.0_12b9de74d2dfff2df42caa8bfb26aeed9d7d7bf2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="18b5697c65c4fe5b7381613b8b8ae9ac52e26fa7">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.4.0_90a0be70aacfa0f5cd578c492cdb085e31ce54c7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="dd763e0269f2854f5828ae62dd968b80bff6a0db">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-9.4.0_4624fccab52738106d96e89dcb866dc34f51f68c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-crash/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b9d48baf96c7e187991a9befa833bebd181960a9">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-crash-9.4.0_16613c470c4da629058fbcceeb9476427296821a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b15f898c9047f9d612a63000126b485dd024eaac">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-9.4.0_0ee465c668b371d563af28161de684503e19d137/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8197651ce1af4d89b47f4545cc720bc4f8611e7d">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-fitness-9.4.0_6674fbe14a8f408caed8c4e34cd15b774a7f302b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="4348dd26d83b56c2058b768222c3271bce911724">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-9.4.0_fe7e9011e052395da0df28db76e18383874d4348/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e6e2251f3d3abf4eecd6bf6919d41fc7af497852">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-games-9.4.0_e8b1a4aae3d7ffc2071e69827d439de81656634c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="4b6d9b70f93bbeb872d0948bc064ae3f3f2bcbac">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-messaging-9.4.0_bc2757ed5e495e0a0f5504a737538f3544c96c27/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="84bf369090a8f7e293817efbd6ccf31ada1be32b">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.4.0_b56ae9b9bd46de209931ac71c201a0106a29f856/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast-framework/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="03829a2618892d438a1f59c6286699ca1f476e93">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-cast-framework-9.4.0_80e7eb0acd83c687d8f23d09e4457a6ef72dd779/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-places/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e35002351f2d415093a9b564652d4b56be6a0593">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-places-9.4.0_b1e6119395ff6c7aa484463c211643988f7bb72a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.1.1_83b530c5675ab4ef73eb326c83fad20b1c485b79/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-common/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="34762013d39dbe6c656050589c44e8b61b9a2c5d">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-common-9.4.0_a85049803e4985ed4b23281a539cfbf11d05900f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.1.1_fb0aa7b3df77b1285d65ddead302ff6f43c6eeb0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0e4d53465cc141bec58f18a894e4c4e80633fa32">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-9.4.0_5419fc31966bf1cc9fafd0534d0ad153e87583a7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-contextmanager/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="72eacac37fc64e95d53abd2a041bf81a952d8615">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-contextmanager-9.4.0_198f859550e97e904216a4312481ab52cb386d21/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f62e763609f65e47dc6c498760a4accf02776788">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.1.1_0a37bacfc0a6985df0fdd0eeb343f681fa60232d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6d7d803871e3203465f71a163e7af104f807b446">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.1.1_79c0f96ed6ffb0242f2e749fc64b4bb626dcac20/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="5e04c0b3683ca45b343284d93e5594b5f9044551">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-identity-9.4.0_bc53527d668d67d5809c635dca91e9a3e595e47d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0b060160e7daee343f5315b3da91b0ff2d7eed89">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-location-9.4.0_5ee2b7350ba77106337f1404b3d848590aa8b119/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_3c64192ae83c33cacc37ae5ced9784e3908ba3ff/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth-module/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6bc41d9d6fd12d2ef23c785a259011001f4a1a5b">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-module-9.4.0_ed0b865af8fac83c11be8115cad3e1af7c091851/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="4b630471536351be7c3c3100735c75b7ad2cbd84">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-9.4.0_53164a29d6ce6d87ced61fcfadc61f20c1aa3482/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics-impl/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0ad33eb600f3d80bdff5ce355c90d5533ade652a">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-analytics-impl-9.4.0_45bc4d1f9ebb7b1e480e1aefd0cdbee6b6c2467c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/23.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-mediarouter-v7-23.0.0_a3f15fc14510c99a7851d16597e6faf2f87467f8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.firebase/firebase-config/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="dab6944860c986980dcc6002a5ca2f127b587317">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-config-9.4.0_a75a29350d854ee594c7ecf2d9bd0523982f5d88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ece40b09e9d4d488bc270cf6af5a9af73bc1cfa3">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-9.4.0_2070c213376800ecff551370a261c09dd789c18a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tagmanager-api/9.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="7ea53c4458b80e8ea71f7fd6831fa184c501377b">
+        <dex dex="/Users/mradulkanugo/Desktop/IOTHackathon/testing/BarcodeReaderSample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tagmanager-api-9.4.0_0bd1927ce35e9401904471f03f216f3467ed10de/classes.dex" />
+    </item>
+
+</items>
