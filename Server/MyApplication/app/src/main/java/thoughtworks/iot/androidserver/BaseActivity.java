@@ -60,13 +60,13 @@ public class BaseActivity extends AppCompatActivity {
         resetMotorOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bluetoothThread.resetMotorOne();
+                bluetoothThread.resetMotor(0);
             }
         });
         resetMotorTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bluetoothThread.resetMotorTwo();
+                bluetoothThread.resetMotor(1);
             }
         });
         statusHandler = new Handler() {
