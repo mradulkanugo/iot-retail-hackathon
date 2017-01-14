@@ -51,7 +51,7 @@ public class BaseActivity extends AppCompatActivity {
         dispatchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cart testcart = new Cart(1, 1, 1, 1);
+                Cart testcart = new Cart(1, 2, 1, 3);
                 addCarttoDispatchList(testcart);
             }
         });
@@ -229,7 +229,7 @@ public class BaseActivity extends AppCompatActivity {
                     editor.putString("shelfOneAngles", shelfOneNewParameters);
                     int[] parameters = new int[4];
                     for (int counter = 0; counter < 4; counter++) {
-                        parameters[counter] = Integer.parseInt(shelfOneParameterValues[counter]);
+                        parameters[counter] = Integer.parseInt(shelfOneParameterValues[counter+1]);
                     }
                     wareHouse[0] = new Shelf(1, 0, Integer.parseInt(shelfOneParameterValues[0]), parameters, activityReference);
                 }
@@ -240,7 +240,7 @@ public class BaseActivity extends AppCompatActivity {
                     editor.putString("shelfTwoAngles", shelfTwoNewParameters);
                     int[] parameters = new int[4];
                     for (int counter = 0; counter < 4; counter++) {
-                        parameters[counter] = Integer.parseInt(shelfTwoParameterValues[counter]);
+                        parameters[counter] = Integer.parseInt(shelfTwoParameterValues[counter+1]);
                     }
                     wareHouse[1] = new Shelf(2, 0, Integer.parseInt(shelfTwoParameterValues[0]), parameters, activityReference);
                 }
@@ -251,7 +251,7 @@ public class BaseActivity extends AppCompatActivity {
                     editor.putString("shelfThreeAngles", shelfThreeNewParameters);
                     int[] parameters = new int[4];
                     for (int counter = 0; counter < 4; counter++) {
-                        parameters[counter] = Integer.parseInt(shelfThreeParameterValues[counter]);
+                        parameters[counter] = Integer.parseInt(shelfThreeParameterValues[counter+1]);
                     }
                     wareHouse[2] = new Shelf(3, 1, Integer.parseInt(shelfThreeParameterValues[0]), parameters, activityReference);
                 }
@@ -262,7 +262,7 @@ public class BaseActivity extends AppCompatActivity {
                     editor.putString("shelfFourAngles", shelfFourNewParameters);
                     int[] parameters = new int[4];
                     for (int counter = 0; counter < 4; counter++) {
-                        parameters[counter] = Integer.parseInt(shelfFourParameterValues[counter]);
+                        parameters[counter] = Integer.parseInt(shelfFourParameterValues[counter+1]);
                     }
                     wareHouse[3] = new Shelf(4, 1, Integer.parseInt(shelfFourParameterValues[0]), parameters, activityReference);
                 }
