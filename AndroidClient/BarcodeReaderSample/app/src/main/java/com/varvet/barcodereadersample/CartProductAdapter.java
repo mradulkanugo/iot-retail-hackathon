@@ -36,14 +36,14 @@ public class CartProductAdapter extends ArrayAdapter<CartItem> {
         productName.setText(getItem(position).getProductName());
         quantity.setText((String.valueOf(getItem(position).getQuantity())));
 
-        Button removeItemImage = (Button) view.findViewById(R.id.quantity_textView);
-        removeItemImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                remove(getItem(position));
-                notifyDataSetChanged();
-            }
-        });
+//        Button removeItemImage = (Button) view.findViewById(R.id.quantity_textView);
+//        removeItemImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                remove(getItem(position));
+//                notifyDataSetChanged();
+//            }
+//        });
 
         return view;
     }

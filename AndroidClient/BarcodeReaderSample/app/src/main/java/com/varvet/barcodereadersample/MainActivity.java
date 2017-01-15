@@ -19,9 +19,11 @@ import android.widget.Toast;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.varvet.barcodereadersample.barcode.BarcodeCaptureActivity;
+import com.varvet.barcodereadersample.camera.Cart;
 import com.varvet.barcodereadersample.camera.CartItem;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView cartListView;
     private Button buttonScanBarCode, buttonAdd, buttonCheckOut;
     private EditText editTextBarCode;
-    private String SERVER_IP = "10.131.127.6:8080";
+    private String SERVER_IP = "10.131.124.75";
     private List<CartItem> itemList;
 
     @Override
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sharedPreferences = getApplicationContext().getSharedPreferences(SettingsDialog.PREF_NAME, MODE_PRIVATE);
-        SERVER_IP = sharedPreferences.getString("serverIp", "10.131.127.6");
+        SERVER_IP = sharedPreferences.getString("serverIp", "10.131.124.75");
         editTextBarCode = (EditText) findViewById(R.id.editText_barCode);
 
         buttonScanBarCode = (Button) findViewById(R.id.scan_barcode_button);
@@ -65,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new CartItem("CenterFresh", 0, "2ABCDE"));
         itemList.add(new CartItem("Nirma", 0, "3ABCDE"));
         itemList.add(new CartItem("Apsara", 0, "4ABCDE"));
+        arrayListCart = new ArrayList<>();
+        cartProductAdapter = new CartProductAdapter(this, R.layout.cart_item_view, arrayListCart);
+        cartListView.setAdapter(cartProductAdapter);
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,12 +89,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        arrayListCart = new ArrayList<>();
-        itemList = new ArrayList<>();
-        cartProductAdapter = new CartProductAdapter(this, R.layout.cart_item_view, arrayListCart);
-        // adapterProductList.add(arrayListCart);
-        cartListView.setAdapter(cartProductAdapter);
+        buttonCheckOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cart checkoutCart = new Cart(arrayListCart);
+                String serverIp = sharedPreferences.getString("serverIp", SERVER_IP);
+                HttpClientPost postRequest = new HttpClientPost();
+                try {
+                    String orderJson = CartSerializer.serialize(checkoutCart);
+                    postRequest.execute(serverIp, orderJson);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.e(LOG_TAG, "Unable to serialize");
+                }
+            }
+        });
         cartListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -103,8 +117,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, BARCODE_READER_REQUEST_CODE);
             }
         });
+
+
         HttpClientGet httpClientGet = new HttpClientGet();
-        httpClientGet.execute();
+        httpClientGet.execute(sharedPreferences.getString("serverIp",SERVER_IP));
     }
 
     @Override
@@ -148,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... args) {
             try {
-                URL url = new URL("http://10.131.126.192:8080"); // here is your URL path
+                URL url = new URL("http://" + args[0] + ":8080"); // here is your URL path
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
 
@@ -212,20 +228,21 @@ public class MainActivity extends AppCompatActivity {
 
             try {
 
-                URL url = new URL("http://10.131.126.192:8080"); // here is your URL path
+                URL url = new URL("http://" + args[0] + ":8080"); // here is your URL path
 
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(15000 /* milliseconds */);
                 conn.setConnectTimeout(15000 /* milliseconds */);
                 conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
                 OutputStream os = conn.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(
                         new OutputStreamWriter(os, "UTF-8"));
-                writer.write(args[0]);
+                writer.write(args[1]);
 
                 writer.flush();
                 writer.close();
@@ -254,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
                     return new String("{ error :   + responseCode }");
                 }
             } catch (Exception e) {
+                Log.e(LOG_TAG, e.getMessage());
                 return new String("{ error : + e.getMessage()} ");
             }
 
@@ -261,6 +279,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
+            Toast.makeText(getApplication(), result, Toast.LENGTH_LONG).show();
 //        baseactivity.showResponse(result);
         }
     }
