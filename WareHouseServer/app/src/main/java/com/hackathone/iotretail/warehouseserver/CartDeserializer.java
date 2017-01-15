@@ -25,7 +25,7 @@ public class CartDeserializer implements JsonDeserializer<Cart> {
         Cart cart = new Cart(0, 0, 0, 0);
         for (JsonElement jsonElement : jsonCartArray) {
             JsonObject cartObject = jsonElement.getAsJsonObject();
-            String productID = cartObject.get("productID").getAsString();
+            String productID = cartObject.get("productId").getAsString();
             Integer shelfNumber = itemRepository.getShelfNumber(productID);
             if(shelfNumber == null){
                 throw new JsonParseException("Invalid QR Code");

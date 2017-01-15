@@ -48,12 +48,14 @@ public class TrackView extends SurfaceView implements Runnable{
 
     @Override
     public void run() {
+        
         while(torun){
             try {
-                Thread.sleep(50);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             for(int counter=0;counter<itemsOnTrack.size();counter++){
                 itemsOnTrack.get(counter).positionOnTrack-=(50.0*100.0/speed);
                 if(itemsOnTrack.get(counter).positionOnTrack<0){

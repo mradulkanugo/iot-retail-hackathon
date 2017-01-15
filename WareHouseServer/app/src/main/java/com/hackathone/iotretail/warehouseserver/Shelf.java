@@ -20,6 +20,7 @@ public class Shelf {
         this.angleForItemNumber=angleForItemNumber;
         this.activity=baseActivity;
         this.shelfView=shelfView;
+      //  this.shelfView.setIteminShelf(this.numberOfItem,shelfSize,(this.shelfNumber-1)/2);
     }
 
     public void dropItemOnBelt(int numberOfItemToDrop){
